@@ -90,7 +90,7 @@ Task 5
 
 When the 'Larger links!' button is clicked, the text of all links on the page should increase.
 */
-const lagerLinks = document.getElementById("largerLinksBtn");
+const largerLinks = document.getElementById("largerLinksBtn");
 largerLinks.addEventListener('click', () => {
     const linkSize = document.getElementsByTagName("a");
     console.log(linkSize)
@@ -127,14 +127,35 @@ Using the same function in Task 3, every time the 'Change colour' button is clic
 The next color when you are in the last color of the array will be the first color again.
 */
 
+
 const colors = ["#e76f51", "#f4a261", "#e9c46a", "#2a9d8f", "#264653"]; 
 const backgroundColor = document.querySelector("body");
-let clicks = -1;
+let i = -1;
 changeBtn.addEventListener('click', () => {
-    if(clicks < colors.length-1) {
-        clicks ++;
+    if(clicks < colors.length -1 ) {
+        i ++;
     } else {
-        clicks = 0;
+        i = 0;
     }
-backgroundColor.style.backgroundColor = colors[clicks]
-})
+backgroundColor.style.backgroundColor = colors[i]
+});
+
+
+/*
+
+let colorsArray = ["black", "grey", "pink", "orange", "yellowgreen"];
+let index = 0
+let changeColorBtn = document.querySelector("#bgrChangeBtn");
+changeColorBtn.addEventListener("click", changeColor);
+
+function changeColor() {
+    if (index > (colorsArray.length - 1)) {
+        index = 0;
+    }
+    document.querySelector("body").style.backgroundColor = colorsArray[index];
+
+    index++;
+
+};
+
+*/

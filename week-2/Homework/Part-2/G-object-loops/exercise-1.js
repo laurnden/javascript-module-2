@@ -7,6 +7,13 @@ const studentGrades = {
     george: 17,
     abdul: 19,
   };
+
+  
+  for (const property in studentGrades) {
+    if (studentGrades[property] > 18) {
+     console.log(`${property}: ${studentGrades[property]}`)
+    }
+  }
   
   // Prints
   // TOM - 20

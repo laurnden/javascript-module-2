@@ -1,11 +1,8 @@
 /*
 E-commerce
-
 You have to create an e-commerce shopping cart
-
 First of all we need 2 arrays, 
 the list of available products and the list of products introduced in the shopping cart.
-
 1. Fill the products list with at least 4 products, what attributes de we have? 
 at least should have:
 var product = {
@@ -15,15 +12,11 @@ var product = {
   stock:
 }
 id is a unique number that identifies each product
-
 3. Create a function addToShoppingCart to add a product to the shopping cart list giving the product id,
 the function will add the product to the selectedProduct list, and add the price to the totalPrice
-
 4. Create the function removeFrom ShoppingCart to remove a product that a client does not like anymore
-
 5. Create the function shop, the function will empty the list and set 0 in the totalPrice of the shopping cart
 In addition will substract 1 in the product stock of bought products
-
 6. If there is not enough stock, the product cannot be added to the shopping cart
 */
 
@@ -51,15 +44,33 @@ var shoppingCart = {
 };
 
 function addToShoppingCart(id){
-
+  products.forEach(product => {
+    if (product.id === id){
+      shoppingCart.selectedProducts.push(product);
+      shoppingCart.totalPrice += product.price;
+    };
+  });
 }
 
 function removeFromShoppingCart(id){
-
+  shoppingCart.selectedProducts.forEach((product,index) => {
+    if (product.id === id){
+      shoppingCart.selectedProducts.splice(index,1);
+      shoppingCart.totalPrice -= product.price;
+    };
+  });
 }
 
 function shop(){
-
+  shoppingCart.selectedProducts.forEach(shoppingCartProduct => {
+    products.forEach((product) => {
+      if (product.id === shoppingCartProduct.id){
+        product.stock-= 1;
+      };
+    });
+    shoppingCart.selectedProducts = [];
+    shoppingCart.totalPrice = 0;
+  });
 }
 
 //results

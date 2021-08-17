@@ -16,4 +16,40 @@ var car = {
 };
 
 */
+var tablet = {
+    brand: 'Lenovo',
+    color: 'black',
+    graphic: true,
+    extendedKeyboard: 'true',    
+    includedPen: 'true'
+};
 
+var mobile = {
+    brand: 'iPhone',
+    color: 'black',
+    is5G: false,
+    isTouchScreen: true,
+    operativeSistem: 'iOS'
+};
+
+var bike = {
+    brand: 'Moma',
+    color: 'light-blue',
+    type: 'pistera',
+    hasLights: true,
+    rodado: 26
+}
+
+var mug = {
+    brand: 'Pull & Bear',
+    color: 'green',
+    material: 'ceramic',
+    volumeInCC: 250
+}
+
+var shirt = {
+    brand: 'Decathlon',
+    color: 'black',
+    size: 's',
+    material: 'cotton'
+}
