@@ -31,7 +31,7 @@ TIP: Use the functions you created on tasks 1-3
 
 ================
 */
-var movies = [
+let movies = [
   {
     title: "Color Out of Space",
     director: "Richard Stanley",
@@ -60,8 +60,64 @@ var movies = [
 
 // create showMovies function
 
+let showMovies = () => {
+  const allMovies = document.querySelector('#all-movies');
+  const numberOfMovies = document.querySelector('#movies-number');
+  allMovies.innerHTML = '';
+  numberOfMovies.innerHTML = movies.length;
+
+  movies.forEach(movie => {
+    const newMovieP = document.createElement('p');
+    allMovies.appendChild(newMovieP).textContent = movie.title + ' - ' + movie.director;
+  })
+
+  
+}
+
+setTimeout(showMovies, 1000);
 
 // create a new movie object for your favorite movie
 
+let myMovie = {
+  title: "Bacurau",
+  director: "Kleber Mendonça Filho",
+  type: "thriller",
+  haveWatched: true,
+};
+
+
 
 // create addMovies function
+
+let addMovie = (movie) => {
+  movies.push(movie)
+}
+
+setTimeout(() =>{
+  addMovie(myMovie);
+  showMovies();
+  }, 2000);
+
+const newMovieForm = document.getElementById('new-movie');
+
+newMovieForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const title = document.getElementById('title').value.trim();
+  const director = document.getElementById('director').value.trim();
+  const type = document.getElementById('genre').value.trim();
+  const haveWatched = document.getElementById('watched').checked;
+
+  if (title.length > 0 && director.length > 0 && type.length > 0) {
+      addMovie({
+        title,
+        director,
+        type,
+        haveWatched,
+        });
+  }
+
+  setTimeout(showMovies, 2000);
+});
+
+
+
